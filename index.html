@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Change This -->
+    <title>Your title</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .pulse:hover {
+        animation: pulse-animation 2s infinite;
+      }
+      @keyframes pulse-animation {
+        0% {
+          box-shadow: 0 0 0 0px rgba(254, 126, 126, 0.5);
+        }
+        100% {
+          box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
+        }
+      }
+
+      /* Shine */
+      .shine:after {
+        content: "";
+        top: 0;
+        transform: translateX(100%);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 1;
+        animation: slide 3s ease-in-out infinite;
+
+        /* 
+            CSS Gradient - complete browser support from http://www.colorzilla.com/gradient-editor/ 
+        */
+        background: -moz-linear-gradient(
+          left,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0.8) 50%,
+          rgba(128, 186, 232, 0) 99%,
+          rgba(125, 185, 232, 0) 100%
+        );
+
+        /* FF3.6+ */
+        background: -webkit-gradient(
+          linear,
+          left top,
+          right top,
+          color-stop(0%, rgba(255, 255, 255, 0)),
+          color-stop(50%, rgba(255, 255, 255, 0.8)),
+          color-stop(99%, rgba(128, 186, 232, 0)),
+          color-stop(100%, rgba(125, 185, 232, 0))
+        );
+
+        /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(
+          left,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0.8) 50%,
+          rgba(128, 186, 232, 0) 99%,
+          rgba(125, 185, 232, 0) 100%
+        );
+
+        /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(
+          left,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0.8) 50%,
+          rgba(128, 186, 232, 0) 99%,
+          rgba(125, 185, 232, 0) 100%
+        );
+
+        /* Opera 11.10+ */
+        background: -ms-linear-gradient(
+          left,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0.8) 50%,
+          rgba(128, 186, 232, 0) 99%,
+          rgba(125, 185, 232, 0) 100%
+        );
+
+        /* IE10+ */
+        background: linear-gradient(
+          to right,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0.8) 50%,
+          rgba(128, 186, 232, 0) 99%,
+          rgba(125, 185, 232, 0) 100%
+        ); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#007db9e8',GradientType=1 ); /* IE6-9 */
+      }
+
+      /* animation */
+
+      @keyframes slide {
+        0% {
+          transform: translateX(-100%);
+        }
+        40% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(100%); /* Diam pada posisi akhir */
+        }
+      }
+
+      /* Delay */
+      .shine-1:after {
+        animation-delay: 0s;
+      }
+
+      .shine-2:after {
+        animation-delay: 0.75s;
+      }
+
+      .shine-3:after {
+        animation-delay: 1.5s;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="relative h-screen w-screen"
+      style="
+        background-size: cover;
+        background-image: url('./background.gif');
+        background-position: center;
+      "
+    >
+      <div class="absolute bottom-12 md:bottom-5 left-0 right-0">
+        <div
+          class="bg-white/50 flex justify-center items-center gap-x-7 w-fit mx-auto px-10 py-3 rounded-2xl"
+        >
+          <div
+            class="overflow-hidden relative rounded-xl hover:scale-110 transition-all duration-100 ease-in pulse"
+          >
+            <!-- Change This -->
+            <a href="https://x.com/username_here" class="shine shine-1">
+              <img src="./x.png" class="w-24 md:w-32" />
+            </a>
+          </div>
+
+          <div
+            class="overflow-hidden relative rounded-xl hover:scale-110 transition-all duration-100 ease-in pulse"
+          >
+            <!-- Change This -->
+            <a href="https://replacewithyourwebsite.com" class="shine shine-2">
+              <img src="./logo.png" class="w-24 md:w-32" />
+            </a>
+          </div>
+
+          <div
+            class="overflow-hidden relative rounded-xl hover:scale-110 transition-all duration-100 ease-in pulse"
+          >
+            <!-- Change This -->
+            <a
+              href="https://t.me/replacewithyourusername"
+              class="shine shine-3"
+            >
+              <img src="./tele.png" class="w-24 md:w-32" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Disable Right Click -->
+    <!-- <script>
+      document.addEventListener("contextmenu", function (e) {
+        e.preventDefault();
+      });
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I")) {
+          e.preventDefault();
+        }
+      });
+    </script> -->
+  </body>
+</html>
